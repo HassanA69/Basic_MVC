@@ -1,0 +1,124 @@
+﻿@model DepartmentCreateViewModel;
+@{
+    ViewData["Title"] = "Add Department";
+}
+
+
+
+<form  action="/department/Create" method="get" class="max-w-lg mx-auto space-y-6">
+    <!-- Department Name -->
+    <div>
+        <label for="Name" class="block mb-2 text-sm font-medium">Department Name</label>
+        <input type="text" id="Name" name="Name" class="border p-2 w-full rounded" required />
+    </div>
+
+    <!-- Manager -->
+    <div>
+        <label for="Manager" class="block mb-2 text-sm font-medium">Manager</label>
+        <input type="text" id="Manager" name="Manager" class="border p-2 w-full rounded" required />
+    </div>
+
+    <!-- Instructors -->
+    <div class="flex space-x-4 justify-center mb-6">
+    <button id="dropdownInstructorsBtn" data-dropdown-toggle="dropdownInstructors" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+        Instructors <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+        </svg>
+    </button>
+    <div id="dropdownInstructors" class="z-10 hidden w-48 bg-white rounded-lg shadow-sm dark:bg-gray-700">
+        <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInstructorsBtn">
+            @foreach (var instructor in Model.AllInstructors)
+            {
+                <li>
+                    <div class="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+                        <input id="Instructor_@instructor.Id"
+                               name="SelectedInstructorIds"
+                               type="checkbox"
+                               value="@instructor.Id"
+                               class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm">
+                            <label for="Instructor_@instructor.Id" class="w-full ms-2 text-sm font-medium text-gray-900 rounded-sm
+                                  dark:text-black-300">@instructor.Name</label>
+                    </div>
+                </li>
+            }
+
+        </ul>
+    </div>
+    
+
+
+   
+   
+    <!-- Courses -->
+    <button id="dropdownCoursesBtn" data-dropdown-toggle="dropdownCourses" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+        Courses <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+        </svg>
+    </button>
+    <div id="dropdownCourses" class="z-10 hidden w-48 bg-white rounded-lg shadow-sm dark:bg-gray-700">
+        <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownBgHoverButton">
+            @foreach (var course in Model.AllCourses)
+            {
+                <li>
+                    <div class="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+                        <input id="Course_@course.Id"
+                               name="SelectedCourseIds"
+                               type="checkbox"
+                               value="@course.Id"
+                               class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm">
+                            <label for="Course_@course.Id" class="w-full ms-2 text-sm font-medium text-gray-900 rounded-sm
+                                  dark:text-black-300">@course.Name</label>
+                    </div>
+                </li>
+            }
+
+        </ul>
+    </div>
+
+    
+    <!-- Trainees -->
+    <button id="dropdownTraineesBtn" data-dropdown-toggle="dropdownTrainees"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+        Trainees
+            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+            </svg>
+    </button>
+
+        <div id="dropdownTrainees" class="z-10 hidden w-48 bg-white rounded-lg shadow-sm dark:bg-gray-700">
+            
+        
+        <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200"
+            aria-labelledby="dropdownTraineesBtn">
+            @foreach (var trainee in Model.AllTrainees)
+            {
+                <li>
+                    <div class="flex items-center p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                        <input id="Trainee_@trainee.Id"
+                               name="SelectedTraineeIds"
+                               type="checkbox"
+                               value="@trainee.Id"
+                               class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm
+                                  focus:ring-blue-500 dark:focus:ring-blue-600
+                                  dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700
+                                  focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                        <label for="Trainee_@trainee.Id"
+                               class="w-full ms-2 text-sm font-medium text-gray-900 rounded-sm
+                                  dark:text-black-300">
+                            @trainee.Name
+                        </label>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    </div>
+    <!-- Submit -->
+    <div class="flex justify-center">
+        <button type="submit"
+                class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">
+            Save
+        </button>
+    </div>
+    
+</form>
