@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="h3">Instructors</h1>
+
+@model IEnumerable<Instructor>
+
+<div class="container mt-4">
+    <div class="row">
+        @foreach (var emp in Model)
+        {
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div class="card shadow-sm rounded-3" style="max-width: 220px; margin:auto;">
+                    <img src="~/assets/@emp.ImageUrl"
+                         class="card-img-top"
+                         alt="@emp.Name"
+                         style="height:150px; object-fit:cover;" />
+                    <div class="card-body p-2">
+                        <h6 class="card-title mb-1">@emp.Name</h6>
+                        <p class="card-text" style="font-size: 0.85rem;">
+                            <strong>Salary:</strong> @emp.Salary.ToString("C") <br />
+                            <strong>Address:</strong> @emp.address <br />
+                            <strong>Department:</strong> @emp.Department?.Name <br />
+                            <strong>Course:</strong> @emp.Course?.Name
+                        </p>
+                        <a href="@Url.Action("Details", "Instructor", new { id = emp.Id })" class="btn btn-primary btn-sm w-100">View</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

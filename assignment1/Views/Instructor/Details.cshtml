@@ -1,0 +1,28 @@
+﻿
+<h1>Details</h1>
+
+@model InstructorcustomData
+
+
+
+<div class="card mb-3" style="max-width: 540px;">
+	<div class="row g-0">
+		<div class="col-md-4">
+			<img src="~/assets/@Model.InsturctorImageUrl" class="img-fluid rounded-start" alt="@Model.InsturctorName">
+		</div>
+		<div class="col-md-8">
+			<div class="card-body">
+				<h5 class="card-title">@Model.InsturctorName</h5>
+				<p class="card-text">
+					<strong>Salary:</strong> @Model.InsturctorSalary.ToString("C") <br />
+					<strong>Address:</strong> @Model.InsturctorAddress <br />
+					<strong>Department:</strong> @Model.DepartmentName<br />
+					<strong>Course:</strong> @Model.CourseName
+				</p>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+	
