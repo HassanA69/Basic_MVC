@@ -1,8 +1,8 @@
-\# Mr. Least Academy
+# Mr. Least Academy
 
 
 
-\##  Overview
+##  Overview
 
 MrLeastAcademy is an ASP.NET Core MVC project for managing an academy.  
 
@@ -10,27 +10,29 @@ It allows creating Departments and associating them with Instructors, Courses, a
 
 
 
-\##  Features
+##  Features
 
-\- Create and manage Departments with details (name and manager).
+- Create and manage Departments with details (name and manager).
 
-\- Assign Instructors, Courses, and Trainees to Departments.
+- Assign Instructors, Courses, and Trainees to Departments.
 
-\- CRUD operations implemented using \*\*Entity Framework Core\*\*.
+- CRUD operations implemented using \*\*Entity Framework Core\*\*.
 
-\- Frontend styled with \*\*TailwindCSS\*\*, including dropdowns and checkboxes for selection.
+- Frontend styled with \*\*TailwindCSS\*\*, including dropdowns and checkboxes for selection.
 
 
 
-\##  Technologies
+##  Technologies
 
-\- ASP.NET Core MVC  
+- ASP.NET Core MVC
+  
+- LINQ
 
-\- Entity Framework Core  
+- Entity Framework Core  
 
-\- SQL Server  
+- SQL Server  
 
-\- TailwindCSS  
+- TailwindCSS  
 
 
 
