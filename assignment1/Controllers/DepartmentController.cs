@@ -27,8 +27,10 @@ namespace assignment1.Controllers
             };
             return View("Add",data);
         }
+        [HttpPost]
         public IActionResult Create(DepartmentCreateViewModel data)
         {
+          
             if(data.Name == null || data.Manager == null || data.SelectedCourseIds==null || data.SelectedTraineeIds==null || data.SelectedInstructorIds==null)
             {
                 
